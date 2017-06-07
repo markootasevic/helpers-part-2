@@ -1,0 +1,114 @@
+***!!!STAVI DA SU KLASE PUBLIC!!!***
+
+***Random element iz niza***
+var random = new Random();
+    var questions = new List<string>{
+        "question1",
+        "question2",
+        "question3"};
+    int index = random.Next(questions.Count);
+    Console.WriteLine(questions[index]);
+
+***Inicijalizacija niza sa elementima***
+
+List<string> optionList = new List<string>
+            { "AdditionalCardPersonAdressType", /* rest of elements */ };
+
+
+***Menjanje slova u postojecem stringu***
+ StringBuilder sb = new StringBuilder(userString);
+                            for (int i = 0; i < word.Count(); i++)
+                            {
+                                if (word[i].ToString().ToLower() == letter.ToString().ToLower())
+                                {
+                                    sb[i] = word[i];
+                                }
+                            }
+                            userString = sb.ToString();
+
+***Timer***
+Na formi ima timer componenta i iterval je 1000 za 1 sek i u metodi tick pisemo sta se desi
+svaki sekund tj samnjujemo neki int koji je prepostalo vreme
+Za start timera:
+                timer1.Start();
+
+***Menjanje boje labela***
+label3.ForeColor = System.Drawing.Color.Red;
+
+
+***Menjanje labela iz druge niti***
+if (this.lblGameLength.InvokeRequired)
+            {
+                this.lblGameLength.BeginInvoke((MethodInvoker)delegate () { this.lblGameLength.Text = "11111111111111"; });
+            }
+            else
+            {
+                this.lblGameLength.Text = "aaaaaaaaaaaaaaaaaaa" ;
+            }
+
+***!!! Menjanje binding liste iz druge niti tj metoda u gui pa se zove metoda iz niti !!!***
+Invoke(new MethodInvoker(delegate {
+                guessList.Add(og);
+            }));
+
+***Uzimanje dimenzija matrice***
+
+
+matrix.GetLength(0)  -> Gets the first dimension size
+
+matrix.GetLength(1)  -> Gets the second dimension size
+
+***Ostatak pri deljenju***
+ int remainder = 5 % 3;
+
+***Formatiranje vremena***
+lblTimeStart.Text = DateTime.Now.ToString("HH:mm");
+lblTime.Text = DateTime.Now.ToString("HH:mm:ss");
+MM-mesec
+dd-dan
+yyyy-godina
+
+***Dodavanje kolona i 1 reda u dataGridView ***
+DataGridViewColumn dgvc = new DataGridViewColumn();
+                dgvc.Name = i.ToString();
+                dgvc.CellTemplate = new DataGridViewTextBoxCell();
+                dgvArray.Columns.Add(dgvc);
+                if (dgvArray.Rows.Count == 0)
+                {
+                    DataGridViewRow dgvr = new DataGridViewRow();
+                    dgvArray.Rows.Add(dgvr);
+                }
+                dgvArray.Rows[0].Cells[i].Value = numberArray[i];
+
+***Citanje iz txt fajla***
+using (StreamReader sr = new StreamReader("c:/jamaica.txt"))
+            {
+               string line;
+               
+               // Read and display lines from the file until 
+               // the end of the file is reached. 
+               while ((line = sr.ReadLine()) != null)
+               {
+                  Console.WriteLine(line);
+               }
+
+***Pisanje u fajl***
+using (StreamWriter sw = new StreamWriter("names.txt"))
+         {
+            
+            foreach (string s in names)
+            {
+               sw.WriteLine(s);
+            }
+         }
+         
+***Pisanje i citanje iz fajla 2. nacin***
+// Create a file to write to. 
+string createText = "Hello and Welcome" + Environment.NewLine;
+File.WriteAllText(path, createText);
+
+// Open the file to read from. 
+string readText = File.ReadAllText(path);
+
+***Klik na dugme***
+button1.PerformClick();
